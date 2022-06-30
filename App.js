@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import AppLoading from 'expo-app-loading';
+// import AppLoading from 'expo-app-loading';
+import * as SplashScreen from 'expo-splash-screen';
 
 import AllPlaces from './screens/AllPlaces'
 import AddPlace from './screens/AddPlace'
@@ -28,8 +29,9 @@ export default function App() {
   }, []) 
 
   if (!dbInitialized) {
-    return <AppLoading />
+    SplashScreen.preventAutoHideAsync()
   }
+  SplashScreen.hideAsync()
 
   return (
     <>
